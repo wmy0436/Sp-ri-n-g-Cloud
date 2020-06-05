@@ -8,20 +8,14 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/wmy0436/Sp-ri-n-g-Cloud.git
-          search-paths: application
-          username:
-          password:
+          uri: https://github.com/wmy0436/SpringCloud.git
+          search-paths: config/application
+          username: wmy0436
+          password: mY19921220
     bus:
       refresh:
         enabled: true
-#  rabbitmq:
-#    host: www.batgm.com
-#    port: 5672
-#    username: spring_bus
-#    password: spring_bus
-#  zipkin:
-#    base-url: http://localhost:9411
+
 
 management:
   endpoints:

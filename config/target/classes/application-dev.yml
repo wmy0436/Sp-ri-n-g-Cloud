@@ -8,10 +8,10 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/wmy0436/config.git
-          search-paths:
-          username: wmy0436
-          password: mY19921220
+          uri: https://github.com/wmy0436/Sp-ri-n-g-Cloud.git
+          search-paths: application
+          username:
+          password:
     bus:
       refresh:
         enabled: true
