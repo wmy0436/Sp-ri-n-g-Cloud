@@ -1,0 +1,70 @@
+server:
+  port: 1202
+
+spring:
+  application:
+    name: gateway
+#  zipkin:
+#    base-url: http://localhost:9411
+
+
+
+#--------------------eureka---------------------
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+#--------------------Zuul-----------------------
+zuul:
+  routes:
+    projectmanagement:
+      path: /project/**
+      serviceId: project
+      sensitiveHeaders: "*"
+    authservice:
+      path: /authservice/**
+      serviceId: authservice
+      sensitiveHeaders: "*"
+  retryable: false
+  ignored-services: "*"
+  ribbon:
+    eager-load:
+      enabled: false
+    host:
+    connect-timeout-millis: 50000
+    socket-timeout-millis: 50000
+  add-proxy-headers: true
+
+
+#---------------------OAuth2---------------------
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:${server.port}/authservice/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/authservice/oauth/authorize
+      client-id: web
+    resource:
+      user-info-uri:  http://localhost:${server.port}/authservice/api/user
+      prefer-token-info: false
+
+#----------------------超时配置-------------------
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  eureka:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 35000

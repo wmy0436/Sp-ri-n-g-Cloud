@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: config
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/wmy0436/config.git
+          search-paths:
+          username: wmy0436
+          password: mY19921220
+    bus:
+      refresh:
+        enabled: true
+#  rabbitmq:
+#    host: www.batgm.com
+#    port: 5672
+#    username: spring_bus
+#    password: spring_bus
+#  zipkin:
+#    base-url: http://localhost:9411
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+

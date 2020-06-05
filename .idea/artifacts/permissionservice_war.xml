@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="permissionservice:war">
+    <output-path>$PROJECT_DIR$/permissionservice/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>permissionservice</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="permissionservice-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="permissionservice:war exploded" />
+    </root>
+  </artifact>
+</component>
