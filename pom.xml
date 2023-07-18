@@ -45,7 +45,7 @@
         <zipkin.version>2.10.1</zipkin.version>
         <zipkin-autoconfigure-storage-mysql.version>2.9.4</zipkin-autoconfigure-storage-mysql.version>
         <zipkin-storage-mysql.vsersion>2.8.4</zipkin-storage-mysql.vsersion>
-        <spring-boot-admin.version>2.0.1</spring-boot-admin.version>
+        <spring-boot-admin.version>3.1.2</spring-boot-admin.version>
         <activemq-pool.version>5.15.0</activemq-pool.version>
         <elasticsearch.version>7.6.0</elasticsearch.version>
         <elasticsearch-analysis-ik.version>6.1.1</elasticsearch-analysis-ik.version>
